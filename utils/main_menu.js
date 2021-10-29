@@ -5,7 +5,6 @@ const { viewDepts, addDept } = require("./departments");
 const { viewEmployees, addEmployee } = require("./employees");
 const { viewRoles, addRole, updateEmployeeRole } = require("./roles");
 
-
 // Main Menu Questions
 const questions = [
   {
