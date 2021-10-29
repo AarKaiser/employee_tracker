@@ -1,7 +1,7 @@
 // Requiring Dependencies
 
 const express = require("express");
-// const {connection} = require("./connections/mysql");
+const { db } = require("./config/connection");
 
 // Declaring Express App
 const app = express();
@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 3003;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-function startApp(){
-    console.log("\x1b[34m", "--- Employee Tracker ---")
+function startApp() {
+  console.log("\x1b[34m", "--- Employee Tracker ---");
 }
 
 startApp();
@@ -35,44 +35,4 @@ startApp();
 // WHEN I choose to add an employee
 // THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
 // WHEN I choose to update an employee role
-// THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
-
-
-
-// const express = require('express');
-// // Import and require mysql2
-// const mysql = require('mysql2');
-
-// const PORT = process.env.PORT || 3001;
-// const app = express();
-
-// // Express middleware
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-
-// // Connect to database
-// const db = mysql.createConnection(
-//   {
-//     host: 'localhost',
-//     // MySQL username,
-//     user: 'root',
-//     // MySQL password
-//     password: '@6277.OKay$!',
-//     database: 'classlist_db'
-//   },
-//   console.log(`Connected to the classlist_db database.`)
-// );
-
-// // Query database
-// db.query('SELECT * FROM students', function (err, results) {
-//   console.log(results);
-// });
-
-// // Default response for any other request (Not Found)
-// app.use((req, res) => {
-//   res.status(404).end();
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
+// THEN I am prompted to select an employee to update and their new role and this information is updated in the database
