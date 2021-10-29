@@ -4,6 +4,7 @@ function viewDepts() {
 
 function addDept(){
     console.log ("add dept working")
+    process.exit();
 }
 
 module.exports = { viewDepts, addDept };
