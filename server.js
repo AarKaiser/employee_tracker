@@ -14,7 +14,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 function startApp() {
-  console.log("\x1b[34m", "--- Employee Tracker ---");
+  console.log("\x1b[32m", "\nApplication intialized...")  
+  console.log("\x1b[34m", "\n--- Welcome to Employee Tracker ---\n\n");
+  // process.exit();
 }
 
 startApp();
