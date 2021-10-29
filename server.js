@@ -1,13 +1,18 @@
 // Required dependencies
 
-const inquirer = require("inquirer");
-const mysql = require("mysql2");
 const express = require("express");
+const {connection} = require("./connections/mysql")
 
-//Declaring of Port
+// Declaring Express App
+const app = express();
+
+//Declaring of Port and alternate localhost
 const PORT = process.env.PORT || 3003;
 
 
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 
 // GIVEN a command-line application that accepts user input
