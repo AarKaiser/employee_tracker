@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const { viewDepts, addDept } = require("./departments");
-const { viewEmployees, addEmployee, updateEmployee } = require("./employees");
-const { viewRoles, addRole } = require("./roles");
+const { viewEmployees, addEmployee } = require("./employees");
+const { viewRoles, addRole, updateEmployeeRole } = require("./roles");
 
 const questions = [
   {
@@ -46,7 +46,7 @@ function mainMenu() {
         addEmployee();
         break;
       case "Update An Employee Role":
-        updateEmployee();
+        updateEmployeeRole();
         break;
       default:
         process.exit();
