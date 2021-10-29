@@ -10,5 +10,5 @@ const db = mysql.createConnection({
 }
 );
 
-console.log("\x1b[32m","\nConnection to SQL sucessful...")
+console.log("\x1b[32m","\nConnection to SQL sucessful √")
 module.exports = { db };
