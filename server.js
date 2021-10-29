@@ -1,7 +1,7 @@
-// Required dependencies
+// Requiring Dependencies
 
 const express = require("express");
-const {connection} = require("./connections/mysql")
+// const {connection} = require("./connections/mysql");
 
 // Declaring Express App
 const app = express();
@@ -9,11 +9,15 @@ const app = express();
 //Declaring of Port and alternate localhost
 const PORT = process.env.PORT || 3003;
 
-
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+function startApp(){
+    console.log("\x1b[34m", "--- Employee Tracker ---")
+}
+
+startApp();
 
 // GIVEN a command-line application that accepts user input
 // WHEN I start the application
