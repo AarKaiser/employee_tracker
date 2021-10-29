@@ -1,3 +1,11 @@
+// Required dependencies
+
+const inquirer = require("inquirer");
+const mysql = require("mysql2");
+const express = require("express");
+
+//Declaring of Port
+const PORT = process.env.PORT || 3003;
 
 
 
