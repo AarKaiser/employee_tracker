@@ -3,6 +3,7 @@
 const express = require("express");
 const { db } = require("./config/connection");
 const { banner } = require("./utils/textart_banner")
+const { mainMenu } = require("./utils/main_menu")
 
 // Declaring Express App
 const app = express();
@@ -15,10 +16,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 function startApp() {
-  console.log("\x1b[32m", "\nApplication intialized...")
+  // console.log("\x1b[32m", "\nApplication intialized...")
   console.log("\x1b[34m", banner)  
-  console.log("\x1b[34m", "\nWelcome to Employee Tracker,\n\n");
-  process.exit();
+  console.log("\x1b[36m", "\nWelcome to Employee Tracker,\n\n");
+  mainMenu();
 }
 
 startApp();

@@ -1,4 +1,4 @@
-DB_NAME=employees_db
+DB_NAME=employee_db
 DB_USER=root
 DB_PASSWORD=
-DB_HOST=
+DB_HOST=localhost
