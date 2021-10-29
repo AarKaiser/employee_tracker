@@ -1,8 +1,12 @@
+// Requirements
+
 const inquirer = require("inquirer");
 const { viewDepts, addDept } = require("./departments");
 const { viewEmployees, addEmployee } = require("./employees");
 const { viewRoles, addRole, updateEmployeeRole } = require("./roles");
 
+
+// Main Menu Questions
 const questions = [
   {
     type: "list",
@@ -20,6 +24,8 @@ const questions = [
     ],
   },
 ];
+
+//  Main Menu Navigation Function
 
 function mainMenu() {
   //   console.log("\x1b[32m", "\nSucessfully accessed Main Menu √");
