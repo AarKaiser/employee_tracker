@@ -14,7 +14,27 @@ create table departments (
 );
 
 -- Creating Roles Table
-create table roles (
-    id int not null auto_increment primary key,
 
-)
+create table roles (
+    id int auto_increment primary key,
+    title varchar(50) not null,
+    salary not null decimal,
+    dept_id int,
+        foreign key (dept_id)
+        references departments(id)
+);
+
+-- Creating Employees Table
+
+create table employees (
+    id int auto_increment primary key,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    role_id int,
+    manager_id INT,
+        foreign key (role_id)
+        references roles(id)
+        on delete set null,
+        foreign key (manager_id)
+        references employees(id)
+);

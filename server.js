@@ -3,17 +3,10 @@
 const express = require("express");
 const { db } = require("./config/connection");
 const { banner } = require("./utils/textart_banner");
-const { mainMenu } = require("./utils/main_menu");
-
-// Declaring Express App
-const app = express();
+const mainMenu  = require("./utils/main_menu");
 
 //Declaring of Port and alternate localhost
 const PORT = process.env.PORT || 3003;
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 function startApp() {
   console.log("\x1b[32m", "\nApplication intialized √");
