@@ -36,7 +36,7 @@ const mainMenu = () => {
         // console.log("view all dept selected");
         const departments =  await viewDepts();
         console.log("\n")
-        console.log("\x1b[33m", "Here are all the departments:");
+        console.log("\x1b[33m", "Here is a list of all departments:");
         console.log("\x1b[37m", "\n")
         console.table(departments[0]);
         mainMenu()
@@ -44,7 +44,7 @@ const mainMenu = () => {
       case "View All Roles":
         const roles =  await viewRoles();
         console.log("\n")
-        console.log("\x1b[33m", "Here are all the roles:");
+        console.log("\x1b[33m", "Here is a list of all roles:");
         console.log("\x1b[37m", "\n")
         console.table(roles[0]);
         mainMenu()
@@ -52,7 +52,7 @@ const mainMenu = () => {
       case "View All Employees":
         const employees =  await viewEmployees();
         console.log("\n")
-        console.log("\x1b[33m", "Here are all the employees:");
+        console.log("\x1b[33m", "Here is a list of all employees:");
         console.log("\x1b[37m", "\n")
         console.table(employees[0]);
         mainMenu()
