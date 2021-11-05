@@ -8,7 +8,7 @@ use employee_db;
 
 -- Creating Departments Table
 
-create table departments (
+create table departments(
     id int not null auto_increment primary key,
     name varchar(50)
 );
@@ -18,7 +18,7 @@ create table departments (
 create table roles (
     id int auto_increment primary key,
     title varchar(50) not null,
-    salary not null decimal,
+    salary decimal not null,
     dept_id int,
         foreign key (dept_id)
         references departments(id)
@@ -31,7 +31,7 @@ create table employees (
     first_name varchar(50) not null,
     last_name varchar(50) not null,
     role_id int,
-    manager_id INT,
+    manager_id int null,
         foreign key (role_id)
         references roles(id)
         on delete set null,
