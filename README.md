@@ -10,7 +10,7 @@ Problem Solved: - The pen and paper method for tracking employees.
 Lessons: - How to interact with a SQL server using JavaScript.
 
 ## Table of Contents:
-- [Employee Tracker](#Employee Tracker)
+- [Employee Tracker](#Employee-Tracker)
   1. [Installation](#installation)
   2. [Usage](#usage)
   3. [Contributing](#contributing)
