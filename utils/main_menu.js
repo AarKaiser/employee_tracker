@@ -59,22 +59,25 @@ const mainMenu = () => {
         break;
       case "Add a Department":
         const departments_2 =  await addDept();
+        let departments_3 =  await viewDepts();
         console.log("\n")
         console.log("\x1b[33m", "You have sucessfully added the department:");
         console.log("\x1b[37m", "\n")
-        console.table(departments[0]);
+        console.table(departments_3[0]);
         mainMenu()
         break;
       case "Add a Role":
         const roles_2 =  await addRole();
+        let roles_3 =  await viewRoles();
         console.log("\n")
         console.log("\x1b[33m", "You have successfully added the role:");
         console.log("\x1b[37m", "\n")
-        console.table(roles[0]);
+        console.table(roles_3[0]);
         mainMenu()
         break;
       case "Add an Employee":
         const employees_2 =  await addEmployee();
+        let employees_3 =  await viewRoles();
         console.log("\n")
         console.log("\x1b[33m", "You have succesffully added the employee:");
         console.log("\x1b[37m", "\n")
@@ -82,7 +85,7 @@ const mainMenu = () => {
         mainMenu()
         break;
       case "Update An Employee Role":
-        const roles_3 =  await updateRole();
+        const roles_4 =  await updateRole();
         console.log("\n")
         console.log("\x1b[33m", "You have successfully updated the role:");
         console.log("\x1b[37m", "\n")
