@@ -1,6 +1,7 @@
 // Requirements
 
 const inquirer = require("inquirer");
+// const Connection = require("mysql2/typings/mysql/lib/Connection");
 const { viewDepts, addDept } = require("./departments");
 const { viewEmployees, addEmployee } = require("./employees");
 const { viewRoles, addRole, updateRole } = require("./roles");
@@ -20,7 +21,7 @@ const questions = [
       "Add a Role",
       "Add an Employee",
       "Update An Employee Role",
-      "Exit Team Tracker",
+      "Exit Employee Tracker",
     ],
   },
 ];
@@ -77,11 +78,11 @@ const mainMenu = () => {
         break;
       case "Add an Employee":
         const employees_2 =  await addEmployee();
-        let employees_3 =  await viewRoles();
+        let employees_3 =  await viewEmployees();
         console.log("\n")
         console.log("\x1b[33m", "You have succesffully added the employee:");
         console.log("\x1b[37m", "\n")
-        console.table(employees[0]);
+        console.table(employees_3[0]);
         mainMenu()
         break;
       case "Update An Employee Role":
@@ -89,7 +90,7 @@ const mainMenu = () => {
         console.log("\n")
         console.log("\x1b[33m", "You have successfully updated the role:");
         console.log("\x1b[37m", "\n")
-        console.table(roles[0]);
+        console.table(roles_4[0]);
         mainMenu()
         break;
       default:

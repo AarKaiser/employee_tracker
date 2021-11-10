@@ -18,16 +18,16 @@ values  ("Chief Strategist",150000,1),
         ("CIO", 220000,3),
         ("Head of Legal", 200000,6);
 
-insert into employees (first_name,last_name,role_id,manager_id)
-values  ("Masai","Ujiri",1,null),
-        ("Nick","Nurse",2,1),
-        ("Scottie","Barnes",3,2),
-        ("Pascal","Siakam",4,2),
-        ("Gary","Trent Jr.",5,2),
-        ("OG","Anunoby",6,2),
-        ("Fred","VanVleet",7,2),
-        ("Chris","Boucer",8,2),
-        ("Sviatoslav","Makhailiuk",9,2),
-        ("Dalano","Banton",10,2);
+insert into employees (id,first_name,last_name,role_id,manager_id)
+values  (01,"Masai","Ujiri",1,null),
+        (02,"Nick","Nurse",2,1),
+        (03,"Scottie","Barnes",3,2),
+        (04,"Pascal","Siakam",4,2),
+        (05,"Gary","Trent Jr.",5,2),
+        (06,"OG","Anunoby",6,2),
+        (07,"Fred","VanVleet",7,2),
+        (08,"Chris","Boucer",8,2),
+        (09,"Sviatoslav","Makhailiuk",9,2),
+        (10,"Dalano","Banton",10,2);
         
 select * from departments;

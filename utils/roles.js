@@ -1,6 +1,7 @@
 const { db } = require("../config/connection");
 const inquirer = require("inquirer")
 let departmentArray = [];
+let rolesArray =[];
 
 function viewRoles() {
     console.log("\x1b[32m", "view role working √");
@@ -10,6 +11,11 @@ function viewRoles() {
 
 function loadDepartments() {
   let query = `SELECT * FROM departments`
+  return db.promise().query(query)
+}
+
+function loadEmployees() {
+  let query = `SELECT * FROM employees`
   return db.promise().query(query)
 }
 
@@ -45,16 +51,32 @@ function loadDepartments() {
     ])
     .then((answer) => {
       console.log(answer)
-      // const sql = `
-      //             insert into departments (name)
-      //             values ("${answer.newDept}")`;
-      // db.promise().query(sql)
+      const sql = `
+                  insert into roles (title, salary, dept_id)
+                  values ("${answer.newTitle}","${answer.newSalary}","${answer.departmentId}")
+                  `;
+      db.promise().query(sql)
     })
   }
 
-  function updateRole() {
+  async function updateRole() {
+    let sqlData = await loadEmployees()
+    let stringifiedData = JSON.stringify(sqlData[0])
+    for(i=0; i< JSON.parse(stringifiedData).length; i++) {
+      const newObj = {
+        name: JSON.parse(stringifiedData)[i].name,
+        value: JSON.parse(stringifiedData)[i].id
+      }
+      departmentArray.push(newObj)
+    }
     console.log("\x1b[32m", "update role working √");
-    process.exit();
+    return inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "newTitle",
+        message: "Which role would you like to update?",
+      },
   }
 
 

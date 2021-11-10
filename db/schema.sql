@@ -10,14 +10,14 @@ use employee_db;
 
 create table departments(
     id int not null auto_increment primary key,
-    name varchar(50)
+    name varchar(30)
 );
 
 -- Creating Roles Table
 
 create table roles (
     id int auto_increment primary key,
-    title varchar(50) not null,
+    title varchar(30) not null,
     salary decimal not null,
     dept_id int,
         foreign key (dept_id)
@@ -28,8 +28,8 @@ create table roles (
 
 create table employees (
     id int auto_increment primary key,
-    first_name varchar(50) not null,
-    last_name varchar(50) not null,
+    first_name varchar(30) not null,
+    last_name varchar(30) not null,
     role_id int,
     manager_id int null,
         foreign key (role_id)
