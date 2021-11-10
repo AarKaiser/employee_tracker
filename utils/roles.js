@@ -28,6 +28,7 @@ function loadRoles() {
 async function addRole() {
   let sqlData = await loadDepartments();
   let stringifiedData = JSON.stringify(sqlData[0]);
+  console.log(stringifiedData);
   for (i = 0; i < JSON.parse(stringifiedData).length; i++) {
     let newObj = {
       name: JSON.parse(stringifiedData)[i].name,
@@ -84,11 +85,12 @@ async function updateRole() {
   for (i = 0; i < JSON.parse(stringifiedData3).length; i++) {
     let newObj3 = {
       title: JSON.parse(stringifiedData3)[i].title,
-      value: JSON.parse(stringifiedData3)[i].id,
+      // value: JSON.parse(stringifiedData3)[i].id,
     };
     roleArray.push(newObj3);
+    console.log(roleArray);
   }
-  console.log("\x1b[32m", "update role working √");
+  console.log("\x1b[32m", "update role !working √");
   return inquirer
     .prompt([
       {

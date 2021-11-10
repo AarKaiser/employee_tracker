@@ -1,6 +1,6 @@
 insert into departments (name)
 values  ("Strategy"),
-        ("Markeing"),
+        ("Marketing"),
         ("Finance"),
         ("Human Resources"),
         ("Technology & Equipment"),
