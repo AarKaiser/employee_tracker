@@ -70,23 +70,23 @@ async function updateRole() {
   let sqlData2 = await loadRoles();
   // console.log(sqlData);
   // console.log(sqlData2);
-  let stringifiedData = JSON.stringify(sqlData[0]);
-  let stringifiedData2 = JSON.stringify(sqlData2[0]);
-  console.log(stringifiedData);
+  let stringifiedData2 = JSON.stringify(sqlData[0]);
+  let stringifiedData3 = JSON.stringify(sqlData2[0]);
   console.log(stringifiedData2);
-  for (i = 0; i < JSON.parse(stringifiedData).length; i++) {
-    let newObj = {
-      first_name: JSON.parse(stringifiedData)[i].first_name,
-      value: JSON.parse(stringifiedData)[i].id,
-    };
-    employeeArray.push(newObj);
-  }
+  console.log(stringifiedData3);
   for (i = 0; i < JSON.parse(stringifiedData2).length; i++) {
     let newObj2 = {
-      title: JSON.parse(stringifiedData2)[i].title,
+      first_name: JSON.parse(stringifiedData2)[i].first_name,
       value: JSON.parse(stringifiedData2)[i].id,
     };
-    roleArray.push(newObj2);
+    employeeArray.push(newObj2);
+  }
+  for (i = 0; i < JSON.parse(stringifiedData3).length; i++) {
+    let newObj3 = {
+      title: JSON.parse(stringifiedData3)[i].title,
+      value: JSON.parse(stringifiedData3)[i].id,
+    };
+    roleArray.push(newObj3);
   }
   console.log("\x1b[32m", "update role working √");
   return inquirer
