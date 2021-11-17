@@ -71,3 +71,5 @@ Please feel free to contact me with further questions via email, which is my pre
 [Download](https://github.com/AarKaiser/employee_tracker/blob/main/assets/video/walkthrough.mp4?raw=true)
 
 https://user-images.githubusercontent.com/87316518/142288828-963e4d41-2e64-4c5b-9624-e356d5e31fd3.mp4
+
+https://github.com/AarKaiser/employee_tracker/blob/main/assets/video/walkthrough.mp4
