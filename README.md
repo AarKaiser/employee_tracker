@@ -10,16 +10,19 @@ Problem Solved: - The pen and paper method for tracking employees.
 Lessons: - How to interact with a SQL server using JavaScript.
 
 ## Table of Contents:
-- [Employee Tracker](#Employee-Tracker)
-  1. [Installation](#installation)
-  2. [Usage](#usage)
-  3. [Contributing](#contributing)
-  4. [Licenses](#licenses)
-  5. [Tests](#tests)
-  6. [Technologies](#technologies)
-  7. [Questions](#questions)
-  8. [Screenshot](#screenshot)
-  9. [Walkthrough](#Walkthrough-Video)
+- [Employee Tracker](#employee-tracker)
+  - [Description:](#description)
+  - [Table of Contents:](#table-of-contents)
+  - [Installation:](#installation)
+  - [Dependencies:](#dependencies)
+  - [Usage:](#usage)
+  - [Contributing:](#contributing)
+  - [Licenses:](#licenses)
+  - [Tests:](#tests)
+  - [Technologies Used:](#technologies-used)
+  - [Questions:](#questions)
+  - [Screenshot](#screenshot)
+  - [Walkthrough Video](#walkthrough-video)
 
 ## Installation: 
 
@@ -66,3 +69,5 @@ Please feel free to contact me with further questions via email, which is my pre
 ## Walkthrough Video
     
 [Download](https://github.com/AarKaiser/employee_tracker/blob/main/assets/video/walkthrough.mp4?raw=true)
+
+https://user-images.githubusercontent.com/87316518/142288828-963e4d41-2e64-4c5b-9624-e356d5e31fd3.mp4
