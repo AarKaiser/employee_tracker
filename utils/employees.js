@@ -6,12 +6,14 @@ const inquirer = require("inquirer")
 function viewEmployees() {
   console.log("\x1b[32m", "view employees working √");
   let query = `
-  select first_name as First_Name, last_name as Last_Name, title as Title, salary as Salary, name as Department_Name, manager_id as Manager_ID 
+  select employees.first_name as "First Name", employees.last_name as Last_Name, title as Title, salary as Salary, name as Department_Name, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
   from employee_db.employees
   join roles 
   on role_id = roles.id
   join departments
-  on dept_id = departments.id`;
+  on dept_id = departments.id
+  join employees manager
+  on manager.id = employees.manager_id`;
   return db.promise().query(query);
 }
 

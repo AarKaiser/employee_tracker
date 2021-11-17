@@ -86,12 +86,12 @@ const mainMenu = () => {
         mainMenu()
         break;
       case "Update An Employee Role":
-        const employees_4 =  await viewEmployees();
+        // const employees_4 =  await viewEmployees();
         const roles_4 =  await updateRole();
         console.log("\n")
         console.log("\x1b[33m", "You have successfully updated the employee role:");
         console.log("\x1b[37m", "\n")
-        console.table(employees_4[0]);
+        // console.table(employees_4[0]);
         mainMenu()
         break;
       default:

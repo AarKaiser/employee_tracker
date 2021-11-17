@@ -16,12 +16,12 @@ function loadDepartments() {
 }
 
 function loadEmployees() {
-  let query = "select first_name from employee_db.employees";
+  let query = "select id, first_name, last_name from employee_db.employees";
   return db.promise().query(query);
 }
 
 function loadRoles() {
-  let query = `select title from employee_db.roles`;
+  let query = `select id, title from employee_db.roles`;
   return db.promise().query(query);
 }
 
@@ -66,55 +66,106 @@ async function addRole() {
     });
 }
 
-async function updateRole() {
-  let sqlData = await loadEmployees();
-  let sqlData2 = await loadRoles();
-  // console.log(sqlData);
-  // console.log(sqlData2);
-  let stringifiedData2 = JSON.stringify(sqlData[0]);
-  let stringifiedData3 = JSON.stringify(sqlData2[0]);
-  console.log(stringifiedData2);
-  console.log(stringifiedData3);
-  for (i = 0; i < JSON.parse(stringifiedData2).length; i++) {
-    let newObj2 = {
-      first_name: JSON.parse(stringifiedData2)[i].first_name,
-      value: JSON.parse(stringifiedData2)[i].id,
-    };
-    employeeArray.push(newObj2);
-  }
-  for (i = 0; i < JSON.parse(stringifiedData3).length; i++) {
-    let newObj3 = {
-      title: JSON.parse(stringifiedData3)[i].title,
-      // value: JSON.parse(stringifiedData3)[i].id,
-    };
-    roleArray.push(newObj3);
-    console.log(roleArray);
-  }
-  console.log("\x1b[32m", "update role !working √");
-  return inquirer
-    .prompt([
-      {
-        type: "list",
-        name: "updateEmpl",
-        message: "Which employee would you like to update?",
-        choices: employeeArray,
-      },
-      {
-        type: "list",
-        name: "updateRole",
-        message: "What is the employees new role?",
-        choices: roleArray,
-      },
-    ])
-    .then((answer) => {
-      console.log(answer);
-      // const sql = `
-      //             insert into roles (title, salary, dept_id)
-      //             values ("${answer.newTitle}","${answer.newSalary}","${answer.departmentId}")
-      //             `;
+// async function updateRole() {
+//   let sqlData = await loadEmployees();
+//   let sqlData2 = await loadRoles();
+//   // console.log(sqlData);
+//   // console.log(sqlData2);
+//   let stringifiedData2 = JSON.stringify(sqlData[0]);
+//   let stringifiedData3 = JSON.stringify(sqlData2[0]);
+//   console.log(stringifiedData2);
+//   console.log(stringifiedData3);
+//   for (i = 0; i < JSON.parse(stringifiedData2).length; i++) {
+//     let newObj2 = {
+//       first_name: JSON.parse(stringifiedData2)[i].first_name,
+//       value: JSON.parse(stringifiedData2)[i].id,
+//     };
+//     employeeArray.push(newObj2);
+//   }
+//   for (i = 0; i < JSON.parse(stringifiedData3).length; i++) {
+//     let newObj3 = {
+//       title: JSON.parse(stringifiedData3)[i].title,
+//       // value: JSON.parse(stringifiedData3)[i].id,
+//     };
+//     roleArray.push(newObj3);
+//     console.log(roleArray);
+//   }
+//   console.log("\x1b[32m", "update role !working √");
+//   return inquirer
+//     .prompt([
+//       {
+//         type: "list",
+//         name: "updateEmpl",
+//         message: "Which employee would you like to update?",
+//         choices: employeeArray,
+//       },
+//       {
+//         type: "list",
+//         name: "updateRole",
+//         message: "What is the employees new role?",
+//         choices: roleArray,
+//       },
+//     ])
+//     .then((answer) => {
+//       console.log(answer);
+//       // const sql = `
+//       //             insert into roles (title, salary, dept_id)
+//       //             values ("${answer.newTitle}","${answer.newSalary}","${answer.departmentId}")
+//       //             `;
 
-      // db.promise().query(sql);
-    });
+//       // db.promise().query(sql);
+//     });
+// }
+
+async function updateRole() {
+  loadEmployees().then(([rows]) => {
+    let employees = rows;
+
+    // console.log(employees)
+    const choicesNames = employees.map(({ id, first_name, last_name }) => ({
+      name: first_name + " " + last_name,
+      value: id
+    }));
+
+    // console.log(choices)
+    inquirer.prompt(
+      {
+        type: "list",
+        name: "selectedEmployee",
+        message: "Which employee's role are you updating?",
+        choices: choicesNames
+      }
+    ).then(employeeAnswer => {
+      const employeeId =employeeAnswer.selectedEmployee
+      loadRoles().then(([rows]) => {
+        let titles = rows;
+        const choicesTitle = titles.map(({ id, title }) => ({
+          name: title,
+          value: id
+        }));
+
+        inquirer.prompt(
+          {
+            type: "list",
+            name: "selectedRole",
+            message: "What is their new role?",
+            choices: choicesTitle
+          }
+        ).then(titleAnswer => {
+          const titleId = titleAnswer.selectedRole;
+          const sqlString =`
+          UPDATE employees
+          SET role_id = ?
+          WHERE id = ?`
+
+          db.query(sqlString, [titleId, employeeId], (err, data) => {
+            if(err) throw err;
+            
+          })
+        })
+      })
+    })
+  })
 }
 
 module.exports = { viewRoles, addRole, updateRole };
