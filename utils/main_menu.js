@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const { viewDepts, addDept } = require("./departments");
 const { viewEmployees, addEmployee } = require("./employees");
 const { viewRoles, addRole, updateRole } = require("./roles");
-
+const { banner } = require("./textart_banner");
 
 // Main Menu Questions
 const questions = [
@@ -36,6 +36,8 @@ const mainMenu = () => {
       case "View All Departments":
         // console.log("view all dept selected");
         const departments =  await viewDepts();
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "Here is a list of all departments:");
         console.log("\x1b[37m", "\n")
@@ -44,6 +46,8 @@ const mainMenu = () => {
         break;
       case "View All Roles":
         const roles =  await viewRoles();
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "Here is a list of all roles:");
         console.log("\x1b[37m", "\n")
@@ -52,6 +56,8 @@ const mainMenu = () => {
         break;
       case "View All Employees":
         const employees =  await viewEmployees();
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "Here is a list of all employees:");
         console.log("\x1b[37m", "\n")
@@ -61,6 +67,8 @@ const mainMenu = () => {
       case "Add a Department":
         const departments_2 =  await addDept();
         let departments_3 =  await viewDepts();
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "You have sucessfully added the department:");
         console.log("\x1b[37m", "\n")
@@ -70,6 +78,8 @@ const mainMenu = () => {
       case "Add a Role":
         const roles_2 =  await addRole();
         let roles_3 =  await viewRoles();
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "You have successfully added the role:");
         console.log("\x1b[37m", "\n")
@@ -79,6 +89,8 @@ const mainMenu = () => {
       case "Add an Employee":
         const employees_2 =  await addEmployee();
         let employees_3 =  await viewEmployees();
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "You have succesffully added the employee:");
         console.log("\x1b[37m", "\n")
@@ -86,12 +98,14 @@ const mainMenu = () => {
         mainMenu()
         break;
       case "Update An Employee Role":
-        // const employees_4 =  await viewEmployees();
         const roles_4 =  await updateRole();
+        const employees_4 =  await viewEmployees();
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "You have successfully updated the employee role:");
         console.log("\x1b[37m", "\n")
-        // console.table(employees_4[0]);
+        console.table(employees_4[0]);
         mainMenu()
         break;
       default:

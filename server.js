@@ -9,6 +9,7 @@ const mainMenu  = require("./utils/main_menu");
 const PORT = process.env.PORT || 3003;
 
 function startApp() {
+  process.stdout.write('\x1Bc');
   console.log("\x1b[32m", "\nApplication intialized √");
   console.log("\x1b[34m", banner);
   console.log("\x1b[36m", "\nWelcome to Employee Tracker,\n\n");

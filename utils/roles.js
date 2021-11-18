@@ -28,7 +28,7 @@ function loadRoles() {
 async function addRole() {
   let sqlData = await loadDepartments();
   let stringifiedData = JSON.stringify(sqlData[0]);
-  console.log(stringifiedData);
+  // console.log(stringifiedData);
   for (i = 0; i < JSON.parse(stringifiedData).length; i++) {
     let newObj = {
       name: JSON.parse(stringifiedData)[i].name,
@@ -128,7 +128,7 @@ async function updateRole() {
     }));
 
     // console.log(choices)
-    inquirer.prompt(
+    return inquirer.prompt(
       {
         type: "list",
         name: "selectedEmployee",
@@ -160,7 +160,7 @@ async function updateRole() {
 
           db.query(sqlString, [titleId, employeeId], (err, data) => {
             if(err) throw err;
-            
+
           })
         })
       })

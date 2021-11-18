@@ -6,7 +6,7 @@ const inquirer = require("inquirer")
 function viewEmployees() {
   console.log("\x1b[32m", "view employees working √");
   let query = `
-  select employees.first_name as "First Name", employees.last_name as Last_Name, title as Title, salary as Salary, name as Department_Name, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
+  select employees.first_name as "First Name", employees.last_name as "Last Name", title as Title, salary as Salary, name as "Department Name", CONCAT(manager.first_name, ' ', manager.last_name) as "Manager"
   from employee_db.employees
   join roles 
   on role_id = roles.id
