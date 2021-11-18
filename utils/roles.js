@@ -1,17 +1,18 @@
 const { db } = require("../config/connection");
 const inquirer = require("inquirer");
 let departmentArray = [];
-let employeeArray = [];
-let roleArray = [];
+// let employeeArray = [];
+// let roleArray = [];
 
 function viewRoles() {
   console.log("\x1b[32m", "view role working √");
-  let query = "select title from employee_db.roles";
+  let query = `select title as "Employee Roles" from employee_db.roles`;
   return db.promise().query(query);
 }
 
 function loadDepartments() {
   let query = `select * from departments`;
+  console.log(db.promise().query(query))
   return db.promise().query(query);
 }
 
@@ -57,7 +58,7 @@ async function addRole() {
       },
     ])
     .then((answer) => {
-      console.log(answer);
+      // console.log(answer);
       const sql = `
                   insert into roles (title, salary, dept_id)
                   values ("${answer.newTitle}","${answer.newSalary}","${answer.departmentId}")
@@ -128,7 +129,7 @@ async function updateRole() {
     }));
 
     // console.log(choices)
-    return inquirer.prompt(
+    inquirer.prompt(
       {
         type: "list",
         name: "selectedEmployee",
@@ -158,7 +159,7 @@ async function updateRole() {
           SET role_id = ?
           WHERE id = ?`
 
-          db.query(sqlString, [titleId, employeeId], (err, data) => {
+          return db.query(sqlString, [titleId, employeeId], (err, data) => {
             if(err) throw err;
 
           })

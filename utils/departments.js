@@ -7,7 +7,7 @@ const inquirer = require("inquirer")
 
 function viewDepts() {
   console.log("\x1b[32m", "view dept working √");
-  let query = `select distinct name from employee_db.departments`;
+  let query = `select distinct name as "Departments"from employee_db.departments`;
   return db.promise().query(query);
 }
 
@@ -32,4 +32,4 @@ function addDept() {
   // process.exit();
 }
 
-module.exports = { viewDepts, addDept };
+module.exports = { viewDepts, addDept, };

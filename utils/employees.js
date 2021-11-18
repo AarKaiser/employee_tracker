@@ -34,12 +34,12 @@ function addEmployee() {
       {
         type: "input",
         name: "newEmpRI",
-        message: "What is the role of the new employee?",
+        message: "What is the numerical id number of the new employee's role?",
       },
       {
         type: "input",
         name: "newEmpMI",
-        message: "What is the new employee's Manager's ID?",
+        message: "What is the numerical number of the new employee's Manager ID?",
       },
     ])
     .then((answer) => {

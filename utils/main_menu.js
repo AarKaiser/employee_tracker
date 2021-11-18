@@ -59,7 +59,7 @@ const mainMenu = () => {
         process.stdout.write('\x1Bc');
         console.log("\x1b[34m", banner);
         console.log("\n")
-        console.log("\x1b[33m", "Here is a list of all employees:");
+        console.log("\x1b[33m", "Here is an up to date list of all employees:");
         console.log("\x1b[37m", "\n")
         console.table(employees[0]);
         mainMenu()
@@ -99,16 +99,19 @@ const mainMenu = () => {
         break;
       case "Update An Employee Role":
         const roles_4 =  await updateRole();
-        const employees_4 =  await viewEmployees();
+        // const employees_4 =  await viewEmployees();
         process.stdout.write('\x1Bc');
         console.log("\x1b[34m", banner);
         console.log("\n")
         console.log("\x1b[33m", "You have successfully updated the employee role:");
         console.log("\x1b[37m", "\n")
-        console.table(employees_4[0]);
+        // console.table(employees_4[0]);
         mainMenu()
         break;
       default:
+        process.stdout.write('\x1Bc');
+        console.log("\x1b[32m", "\nThank you for using Aar's Employee Tracker");
+        console.log("\n")
         process.exit();
     }
   });
